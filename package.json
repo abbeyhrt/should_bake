@@ -2,15 +2,29 @@
   "name": "should-bake",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "css-loader": "^0.28.8",
+    "eslint": "^4.15.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.8.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
   "dependencies": {
+    "node-sass-chokidar": "0.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate:recipes": "node scripts/crawler.js"
   }
 }
